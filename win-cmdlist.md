@@ -1,7 +1,20 @@
 # Windows CMD and Run Commandlist
 
-Started creating this cheatsheet when I began my new apprentice ship as IT specialist: system integrator.
-Useful run commands (CTRL + R) and cmd commands. Sub texts are German names as I need to know them as well.
+Started creating this cheatsheet when I began my new apprentice ship as IT specialist.<br>
+Useful run commands (Win + R) and cmd commands. <br>
+Sub texts are German names as I need to know them as well.
+
+### Quick navigation
+- [Important Commands](#important-commands)
+- [Control Panel Commands](#control-panel-commands)
+- [Systen Information Commands](#system-information-commands)
+- [Management Apps Commands](#management-apps-commands)
+- [Simple Windows Apps Commands](#simple-windows-apps-commands)
+- [Folders/Location Commands](#folderslocations-commands)
+- [System Repair Commands](#system-repair-commands)
+- [Useful CMD Commands](#useful-cmd-commands)
+- [Basic Movement](#basic-movement)
+- [Abbreviation List](#abbreviation-list)
 
 ## Important Commands
 |Command|Action|
