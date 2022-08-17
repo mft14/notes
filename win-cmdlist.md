@@ -85,26 +85,64 @@ Useful run commands (CTRL + R) and cmd commands. Sub texts are German names as I
 |	`	shell:RecycleBinFolder	`	|	Papierkorb	|
 |	`	quickassist	`	|	Remotehilfe	|
 
+## Folders/Locations Commands
+|Command|Action|
+|---|---|
+|	`	..	`	|	Alle Benutzer Ordner	|
+|	`	.	`	|	Current User Ordner	|
+|	`	\	`	|	c:\\	|
+|	`	Desktop	`,`	Documents	`,`	Downloads	`,`	Pictures`| Open common user folders directly (per run command)	|
+|	`	shell:startup	`	|	Autostart	|
+|	`	%appdata%	`	|	appdata Roaming	|
+|	`	net use Z: \\server\pfad /persistent:Yes	`	|	Schnelle Möglichkeit für Netzlaufwerke	|
+
+## System Repair Commands
+|Command|Action|
+|---|---|
+|	`	sfc /scannow	`	|	System nach Schäden durchsuchen / Reparatur	|
+|	`	DISM /Online /Cleanup-Image /RestoreHealth	`	|	Das checkt nochmal, einfach eingeben _:D	|
+|	`	chkdsk C: /r	`	|	Disk Errors & Bad Sectors reparieren	|
+|	`	netsh wlan show wlanreport	`	|	Bei Problemen mit WLAN	|
+|	`	powercfg /energy ODER /batteryreport	`	|	Bei Problemen mit Netztteil/Strom/Batterie	|
+
+## Useful CMD Commands
+|Command|Action|
+|---|---|
+|	`	tasklist	`	|	Zeigt alle Tasks an. PID merken	|
+|	`	taskkill (/f /t) /pid PIDNUMBER	`	|	Task ProcessID end (/f force /t child processes)	|
+|	`	tasklist | find "vivaldi" 	`	|	Die Zahl daneben ist die PID	|
+|	`	color (a)	`	|	Terminalfarbe	|
+|	`	robocopy "C:\Users\" "D:\Backup" /mir	`	|	Spiegelt Ordner	|
+|	`	date ` |	date 01.08.2022 ändert sofort Datum (Adminrechte)	|
+|	`	time ` |	time 13:00:00 ändert sofort Zeit (Adminrechte)	|
+|	`	notepad %systemroot%\system32\drivers\etc\hosts	`	|	Am Ende 127.0.0.1 URL anhängen, um Webseiten zu sperren	|
+|	`	net user USERNAME PW /add	`	|	neuen Nutzer hinzufügen	|
+|	`	net user Administrator /active:yes	`	|	Adminkonto aktivieren, falls gebraucht	|
+|	`	net user USERNAME /random 	`	|	Random PW erstellen für existierenden Benutzer	|
+|	`	copy con "name.txt"	`	|	Quickly create file. CTRL+S to save, then CTRL+C to stop	|
+|	`	fc (/b) a.txt b.txt (file comparison, same folder)	`	|	Unterschiede feststellen von zwei Dateien	|
+|	`	> C:\alle_user.txt 	`	|	In Datei schreiben z.B. net user	|
+|	`	\| find "SUCHWORT"	`	|	Suchen zB. tasklist; systeminfo	|
+|	`	cipher /e D:\encrypt	`	|	Verschlüsselt mit user Passwort	|
+|	`	cipher /e /s:D:/folder	`	|	Wenn schon Dateien drin sind	|
+|	`	cipher /w:C. oder D:	`	|	Schreibt Riesendatei	|
+
+## Basic Movement
+|Commands|Action|
+|---|---|
+|	`	cd, del, move, copy, ren	`	|	cd, löschen, bewegen, kopieren	|
+|	`	md ; rd /S ORDNER	`	|	make/remove dir 	|
+|	`	C: ; D:	`	|	Wechseln	|
+|	`	"diskpart ` then `list volume"	`	|	list all drives	|
 
 
 
-
-
-
-
-
-
-
-
-
-
-# Abbreviations of certain commands
-
+# Abbreviation List
 |Command|Meaning|
 |---|---|
 | `cpl` | **C**ontrol **P**ane**l** |
 | `mstsc` | Microsoft Terminal Services Client |
 | `ncpa` | (network control panel) |
-| `wscui` | Win Security UI |
 | `osk`| on screen keyboard|
+| `wscui` | Win Security UI |
 
