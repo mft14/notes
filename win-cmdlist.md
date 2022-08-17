@@ -4,6 +4,8 @@ Started creating this cheatsheet when I began my new apprentice ship as IT speci
 Useful run commands (Win + R) and cmd commands. <br>
 Sub texts are German names as I need to know them as well.
 
+This list is still under construction. There might be some language errors
+
 ### Quick navigation
 - [Important Commands](#important-commands)
 - [Control Panel Commands](#control-panel-commands)
@@ -14,6 +16,7 @@ Sub texts are German names as I need to know them as well.
 - [System Repair Commands](#system-repair-commands)
 - [Useful CMD Commands](#useful-cmd-commands)
 - [Basic Movement](#basic-movement)
+- [Win10 Control Panel Quick Commands](#windows-10-control-panel-quick-commands)
 - [Abbreviation List](#abbreviation-list)
 
 ## Important Commands
@@ -21,141 +24,165 @@ Sub texts are German names as I need to know them as well.
 |---|---|
 | `control` | Control Panel (old) <sub>(Systemsteuerung)</sub> |
 | `sysdm.cpl` | Computer Settings |
-| `mmsys.cpl` | Soundeinstellungen (alt) (Multimedia System) |
+| `mmsys.cpl` | Sound (old) |
 | `appwiz.cpl` |	Un/Install Apps (old) |
 | `optionalfeatures`| Un/Install optional features |
 | `mstsc` | Remote Desktop Session |
-| `ncpa.cpl` | 	Network Connections (Netzwerkverbindungen) |
+| `ncpa.cpl` | Network Connections <sub>Netzwerkverbindungen</sub> |
 
 ## Control Panel Commands
 |Command|Action|
 |---|---|
-|	`	control desktop	`	|	Desktopeinstellung (RKL Desktop)	|
-|	`	control folders	`	|	Ordneroptionen	|
-|	`	control keyboard	`	|	Tastatureinstellungen	|
-|	`	control mouse 	`	|	Mauseinstellungen	|
-|	`	control printers	`	|	Geräte und Drucker	|
-|	`	firewall.cpl / wf.msc	`	|	Firewall / Win Defender Firewall	|
-|	`	inetcpl.cpl	`	|	Interneteigenschaften von Inet Explorer xD	|
+|	`	control desktop	`	|	Personalization Settings |
+|	`	control folders	`	|	File Explorer Options	|
+|	`	control keyboard	`	|	Keyboard Properties	|
+|	`	control mouse 	`	|	Mouse Properties |
+|	`	control printers	`	|	Devices and Printers |
+|	`	firewall.cpl`	|	Firewall |
 |	`	joy.cpl	`	|	Gamepad	|
-|	`	wscui.cpl [win Security UI]	`	|	Wartungscenter	|
-|	`	powercfg.cpl	`	|	Energieoptionen (power config)	|
-|	`	sndvol	`	|	Sound Lautstärke Mixer (alt) (sound volume)	|
+|	`	wscui.cpl	`	|	Security and Maintenance <sub>Wartungscenter</sub>	|
+|	`	powercfg.cpl	`	|	Power Options |
+|	`	sndvol	`	| Volume Mixer (old)	|
 |	`	taskmgr	`	|	Taskmanager	|
 |	`	control update	`	|	Windows Update	|
-|	`	control system	`	|	System Info (PC Umbenennen)	|
+|	`	control system	`	|	PC System Info	|
 
 ## System Information Commands
 |Command|Action|
 |---|---|
-|	`	msconfig	`	|	Systemkonfiguration	|
-|	`	msinfo32	`	|	Systeminformationen	|
+|	`	msconfig	`	|	System configuration	|
+|	`	msinfo32	`	|	System information	|
 |	`	winver	`	|	Windows Version	|
 |	`	systeminfo (in CMD)	`	|	im CMD aufrufen für Infos	|
-|	`	systeminfo \| find "Speicher"	`	|		|
-|	`	find Installationsdatum	`	|		|
-|	`	find Prozessor, Domäne ->	`	|	Anmeldeserver, Hyper-V	|
-|	`	Betriebssystem etc.	`	|		|
-|	`	dxdiag	`	|	Grafikkarte schnell auslesen	|
-|	`	wmic path win32_VideoController get name	`	|	Grafikkarte schnell auslesen	|
-|	`	wmic memorychip	`	|	Alles über RAM (auch Banks etc)	|
-|	`	arp -a	`	|	Alle IP Adressen am Router	|
-|	`	ipconfig (/all)	`	|	Informationen zu Netzwerk	|
-|	`	ipconfig /flushdns	`	|	Löscht DNS Cache Resolver	|
-|	`	ping & nslookup	`	|	Webseite pingen und andersrum	|
-|	`	tracert	`	|	Zeigt Umwege bis Zielserver	|
-|	`assoc (\| find \"mp3\")` |	Zeigt, was mit was assoziiert ist	|
+|	`	systeminfo \| find "NAME"	`	|		|
+|	`	dxdiag	`	|	Quickly display graphic card |
+|	`	wmic path win32_VideoController get name	`	|	Quickly display graphic card |
+|	`	wmic memorychip	`	|	Quickly display RAM informations |
+|	`	arp -a	`	|	all IP adresses on router	|
+|	`	ipconfig (/all)	`	|	network informations like ip adresses	|
+|	`	ipconfig /flushdns	`	|	Deletes DNS Cache Resolver	|
+|	`	ping & nslookup	`	|	Ping server and vice versa (with nslookup) |
+|	`	tracert	`	|	Shows all routes before reaching target server	|
+|	`assoc \| find \"mp3\" ` |	Shows file associations	|
 
 ## Management Apps Commands
 |Command|Action|
 |---|---|
-|	`	devmgmt.msc	`	|	Gerätemanager	|
-|	`	dfrgui	`	|	Defragmentierung	|
-|	`	diskmgmt.msc	`	|	Datenträgerverwaltung	|
-|	`	eventvwr	`	|	Ereignisanzeige	|
-|	`	fsmgmt.msc	`	|	Freigegebende Ordner	|
-|	`	lusrmgr.msc [local user manager]	`	|	Benutzer und Gruppen Manager 	|
-|	`	perfmon	`	|	Leistungsüberwachung (alt)	|
+|	`	devmgmt.msc	`	|	Device Manager <sub>Gerätemanager</sub>	|
+|	`	dfrgui	`	|	Defragment Tool	|
+|	`	diskmgmt.msc	`	|	Disk Management	|
+|	`	eventvwr	`	|	Event Viewer	|
+|	`	fsmgmt.msc	`	|	Shared Folders	|
+|	`	lusrmgr.msc [local user manager]	`	|	Local Users and Groups 	|
+|	`	perfmon	`	|	Performance Monitor	|
 |	`	regedit	`	|	Registry Editor	|
-|	`	rstrui [restore UI]	`	|	Systemwiederherstellung	|
-|	`	services.msc	`	|	Win Dienste	|
-|	`	slui [Software Licensing User Interface]	`	|	Win Key	|
-|	`	taskschd.msc	`	|	Aufgabenplanung	|
+|	`	rstrui [restore UI]	`	|	System Restore	|
+|	`	services.msc	`	|	Win Services	|
+|	`	slui [Software Licensing User Interface]	`	|	Windows Activation	|
+|	`	taskschd.msc	`	|	Task Schedule	|
 |	`	virtmgmt.msc	`	|	Hyper-V	|
-|	`	wf.msc	`	|	Windows Defender Firewall m. erw. Sicherheit	|
-|	`	control keymgr.dll	`	|	Windows Credentials (Anmeldeinformationsverwaltung)	|
+|	`	wf.msc	`	|		Windows Defender Firewall with Advanced Security	|
+|	`	control keymgr.dll	`	|	Windows Credentials <sub>Anmeldeinformationsverwaltung</sub>	|
 
 ## Simple Windows Apps Commands
 |Command|Action|
 |---|---|
-|	`	calc	`	|	Taschenrechner	|
-|	`	charmap	`	|	Zeichentabelle	|
-|	`	magnify	`	|	Bildschirmlupe	|
-|	`	notepad(++)	`	|	(Notepad)Editor	|
-|	`	osk on screen keyboard	`	|	Bildschirmtastatur	|
+|	`	calc	`	|	Calculator	|
+|	`	charmap	`	|	Char Map	|
+|	`	magnify	`	|	Glasses	|
+|	`	notepad(++)	`	|	Notepad(++)	|
+|	`	osk	`	|	On-Screen-Keyboard	|
 |	`	write	`	|	Wordpad	|
 |	`	wmplayer	`	|	Windows Media Player	|
-|	`	shell:RecycleBinFolder	`	|	Papierkorb	|
-|	`	quickassist	`	|	Remotehilfe	|
+|	`	quickassist	`	|	New Remote Assistance	|
 
 ## Folders/Locations Commands
 |Command|Action|
 |---|---|
-|	`	..	`	|	Alle Benutzer Ordner	|
-|	`	.	`	|	Current User Ordner	|
+|	`	..	`	|	All User folders	|
+|	`	.	`	|	Current User Folder	|
 |	`	\	`	|	c:\\	|
-|	`	Desktop	`,`	Documents	`,`	Downloads	`,`	Pictures`| Open common user folders directly (per run command)	|
+|	`	Desktop	`,`	Documents	`,`	Downloads	`,`	Pictures`| Open user folders directly	|
+|	`	shell:recyclebinfolder	`	|	Recycle Bin |
 |	`	shell:startup	`	|	Autostart	|
-|	`	%appdata%	`	|	appdata Roaming	|
-|	`	net use Z: \\server\pfad /persistent:Yes	`	|	Schnelle Möglichkeit für Netzlaufwerke	|
+|	`	%appdata%	`	|	Appdata -- Roaming	|
+|	`	net use Z: \\server\path /persistent:Yes	`	|	Bind network devices quickly |
 
 ## System Repair Commands
 |Command|Action|
 |---|---|
-|	`	sfc /scannow	`	|	System nach Schäden durchsuchen / Reparatur	|
-|	`	DISM /Online /Cleanup-Image /RestoreHealth	`	|	Das checkt nochmal, einfach eingeben _:D	|
-|	`	chkdsk C: /r	`	|	Disk Errors & Bad Sectors reparieren	|
-|	`	netsh wlan show wlanreport	`	|	Bei Problemen mit WLAN	|
-|	`	powercfg /energy ODER /batteryreport	`	|	Bei Problemen mit Netztteil/Strom/Batterie	|
+|	`	sfc /scannow	`	|	System scan for errors / repair	|
+|	`	chkdsk C: /r	`	|	Disk Errors & Bad Sectors repair	|
+|	`	netsh wlan show wlanreport	`	|	Checking WLAN problems	|
+|	`	powercfg /energy ODER /batteryreport	`	|	Checking power supply errors	|
 
 ## Useful CMD Commands
 |Command|Action|
 |---|---|
-|	`	tasklist	`	|	Zeigt alle Tasks an. PID merken	|
-|	`	taskkill (/f /t) /pid PIDNUMBER	`	|	Task ProcessID end (/f force /t child processes)	|
+|	`	tasklist	`	|	list every task	|
+|	`	taskkill (/f /t) /pid PIDNUMBER	`	|	kill task per PID	|
 |	`	tasklist | find "vivaldi" 	`	|	Die Zahl daneben ist die PID	|
-|	`	color (a)	`	|	Terminalfarbe	|
-|	`	robocopy "C:\Users\" "D:\Backup" /mir	`	|	Spiegelt Ordner	|
-|	`	date ` |	date 01.08.2022 ändert sofort Datum (Adminrechte)	|
-|	`	time ` |	time 13:00:00 ändert sofort Zeit (Adminrechte)	|
-|	`	notepad %systemroot%\system32\drivers\etc\hosts	`	|	Am Ende 127.0.0.1 URL anhängen, um Webseiten zu sperren	|
-|	`	net user USERNAME PW /add	`	|	neuen Nutzer hinzufügen	|
-|	`	net user Administrator /active:yes	`	|	Adminkonto aktivieren, falls gebraucht	|
-|	`	net user USERNAME /random 	`	|	Random PW erstellen für existierenden Benutzer	|
+|	`	taskkill /f /t) `	|	/f = force /t = kill child tasks	|
+|	`	color (a)	`	|	Terminal color	|
+|	`	robocopy "C:\Users\" "D:\Backup" /mir	`	|	Mirror folder ( /e = copy and keeping old)	|
+|	`	date ` |	(admin) change date (syntax like your current format)	|
+|	`	time ` |	(admin) change time (syntax like your current format) |
+|	`	notepad %systemroot%\system32\drivers\etc\hosts	`	|	Put IP or websites to lock them	|
+|	`	net user USERNAME PW /add	`	|	add new user with. PW = password	|
+|	`	net user Administrator /active:yes	`	|	Activate administrator account	|
+|	`	net user USERNAME /random 	`	|	Creates random password for user	|
 |	`	copy con "name.txt"	`	|	Quickly create file. CTRL+S to save, then CTRL+C to stop	|
-|	`	fc (/b) a.txt b.txt (file comparison, same folder)	`	|	Unterschiede feststellen von zwei Dateien	|
-|	`	> C:\alle_user.txt 	`	|	In Datei schreiben z.B. net user	|
-|	`	\| find "SUCHWORT"	`	|	Suchen zB. tasklist; systeminfo	|
-|	`	cipher /e D:\encrypt	`	|	Verschlüsselt mit user Passwort	|
-|	`	cipher /e /s:D:/folder	`	|	Wenn schon Dateien drin sind	|
-|	`	cipher /w:C. oder D:	`	|	Schreibt Riesendatei	|
+|	`	fc (/b) a.txt b.txt `	| File comparison |
+|	`	> C:\alle_user.txt 	`	|	Put this at the end - Creates file, storing output	|
+|	`	\| find "SUCHWORT"	`	|	Put this at the end - searches for names, for example in tasklist	|
+
 
 ## Basic Movement
 |Commands|Action|
 |---|---|
-|	`	cd, del, move, copy, ren	`	|	cd, löschen, bewegen, kopieren	|
+|	`	cd, del, move, copy, ren	`	|	change dir, delete, move, copy, rename	|
 |	`	md ; rd /S ORDNER	`	|	make/remove dir 	|
-|	`	C: ; D:	`	|	Wechseln	|
-|	`	"diskpart ` then `list volume"	`	|	list all drives	|
+|	`	C: ; D:	`	|	Change drive	|
+|	`	"diskpart `  then  `list volume"	`	|	list all drives	|
 
+## Windows 10 Control Panel Quick Commands
+|Commands|Action|
+|---|---|
+|	`	ms-settings:	`	|	System Settings	|
+|	`	ms-settings:display	`	|		|
+|	`	ms-settings:yourinfo	`	|	
+|	`	ms-settings:workplace	`	|	
+|	`	ms-settings:dateandtime	`	|	
+|	`	ms-settings:startupapps	`	|	
+|	`	ms-settings:defaultapps	`	|	
+
+For a full Win10 control panel list, [check out this page.](https://winaero.com/ms-settings-commands-in-windows-10/)
 
 
 # Abbreviation List
 |Command|Meaning|
 |---|---|
-| `cpl` | **C**ontrol **P**ane**l** |
+| `appwiz` | App(lication) wizard |
+| `assoc` | Associate |
+| `.cpl` | **C**ontrol **P**ane**l** |
+| ` fsmgmt` | Folder Share Management |
+| `lusrmgr` | Local User Manager |
+| `mgr` OR `mgmt` | Manager/Management |
+| `mmsys` | Multimedia System |
+| `ms` | Microsoft |
+| `.msc` | Microsoft Management Console|
 | `mstsc` | Microsoft Terminal Services Client |
-| `ncpa` | (network control panel) |
-| `osk`| on screen keyboard|
-| `wscui` | Win Security UI |
+| `ncpa` | Network Control Panel |
+| `osk` | on screen keyboard|
+| `powercfg` | Power Configuration |
+| `regedit` | Registry Editor |
+| `rstrui` | Restore User Interface |
+| `slui` | Software Licensing User Interface |
+| `sndvol` | Sound Volume |
+| `sysdm` | System Device Manager |
+| `taskschd` | Task Schedule |
+| `tracert` | Trace Route |
+| `wf.msc`| Windows (Defender) Firewall |
+| `wmic` | ??? |
+| `wscui` | Win Security User Interface |
 
