@@ -53,8 +53,8 @@ This list is still under construction. There might be some language errors
 |	`	msconfig	`	|	System configuration	|
 |	`	msinfo32	`	|	System information	|
 |	`	winver	`	|	Windows Version	|
-|	`	systeminfo (in CMD)	`	|	im CMD aufrufen für Infos	|
-|	`	systeminfo \| find "NAME"	`	|		|
+|	`	systeminfo (run in CMD)	`	|	Outputs computer hardware	|
+|	`	systeminfo \| find "NAME"	`	|	Finds specific entry	|
 |	`	dxdiag	`	|	Quickly display graphic card |
 |	`	wmic path win32_VideoController get name	`	|	Quickly display graphic card |
 |	`	wmic memorychip	`	|	Quickly display RAM informations |
@@ -73,12 +73,12 @@ This list is still under construction. There might be some language errors
 |	`	diskmgmt.msc	`	|	Disk Management	|
 |	`	eventvwr	`	|	Event Viewer	|
 |	`	fsmgmt.msc	`	|	Shared Folders	|
-|	`	lusrmgr.msc [local user manager]	`	|	Local Users and Groups 	|
+|	`	lusrmgr.msc `	|	Local Users and Groups 	|
 |	`	perfmon	`	|	Performance Monitor	|
 |	`	regedit	`	|	Registry Editor	|
-|	`	rstrui [restore UI]	`	|	System Restore	|
+|	`	rstrui	`	|	System Restore	|
 |	`	services.msc	`	|	Win Services	|
-|	`	slui [Software Licensing User Interface]	`	|	Windows Activation	|
+|	`	slui `	|	Windows Activation	|
 |	`	taskschd.msc	`	|	Task Schedule	|
 |	`	virtmgmt.msc	`	|	Hyper-V	|
 |	`	wf.msc	`	|		Windows Defender Firewall with Advanced Security	|
@@ -114,7 +114,7 @@ This list is still under construction. There might be some language errors
 |	`	sfc /scannow	`	|	System scan for errors / repair	|
 |	`	chkdsk C: /r	`	|	Disk Errors & Bad Sectors repair	|
 |	`	netsh wlan show wlanreport	`	|	Checking WLAN problems	|
-|	`	powercfg /energy ODER /batteryreport	`	|	Checking power supply errors	|
+|	`	powercfg /energy ` OR `powercfg /batteryreport	`	|	Checking power supply errors OR battery	|
 
 ## Useful CMD Commands
 |Command|Action|
@@ -143,7 +143,7 @@ This list is still under construction. There might be some language errors
 |	`	cd, del, move, copy, ren	`	|	change dir, delete, move, copy, rename	|
 |	`	md ; rd /S ORDNER	`	|	make/remove dir 	|
 |	`	C: ; D:	`	|	Change drive	|
-|	`	"diskpart `  then  `list volume"	`	|	list all drives	|
+|	`	diskpart `  then  `list volume	`	|	list all drives	|
 
 ## Windows 10 Control Panel Quick Commands
 |Commands|Action|
