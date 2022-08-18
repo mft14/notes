@@ -75,3 +75,4 @@ Check disk path names with "Disks"
 ## Good to know:
 - `cd` = use only `cd` to go to home directory
 - `cd -` = alternative to `cd ..` 
+- `rm *.txt` = removes every textfile (use with CARE)
