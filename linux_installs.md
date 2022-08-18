@@ -23,6 +23,7 @@ In the future, it is planned to make a simple apt-install generator in HTML/JS s
 
 ## Apt Installs (Personal list)
 ```
+mkdir Apps Jeux Progg VMs .themes .sounds .icons .vst3 .vst;
 sudo apt install qjackctl mc 
 bc git vim feh id3v2 wmctrl ranger samba 
 hollywood ncdu nnn mpv w3m gocryptfs cmus 
