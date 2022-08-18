@@ -1,6 +1,7 @@
 # Linux Terminal Apps
-Here are lists of common terminal apps I often use
-Ordered alphabetically
+Here are lists of common terminal apps I often use. <br>
+Ordered alphabetically<br>
+Still in work!
 
 ## 3rd Party CLI
 #### cmus
@@ -71,6 +72,14 @@ Check disk path names with "Disks"
 |---|---|
 |`find . -name *.txt`|find all txt files|
 
+
+#### git
+|Command|Action|
+|---|---|
+|`git config --global user.name "NAME"`|Enter username|
+|`git config --global user.email "mail@example.com"`|Enter mail|
+|`git status | add . | commit -m "MESSAGE" | push | pull`|Standard Git commands to check, stage, commit, push & pull|
+|`git clone https://TOKEN@github.com/USER/REPO.git`|Quickly clone private repositories|
 
 ## Good to know:
 - `cd` = use only `cd` to go to home directory
