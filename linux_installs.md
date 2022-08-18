@@ -5,6 +5,18 @@ This is my personal list of apps I usually install on a new fresh system. If you
 - use ; to combine several commands. Ideal if you first install something, then uninstall as this wouldn't work at once
 - a multi-install like this also works in flatpak and snap
 
+### Navigation
+- [Apt Installs](#apt-installs-personal-list)
+- [Flatpak Installs](#flatpak-installs)
+- [Snap Installs](#snap-installs)
+#### More Installs
+- [Quick Folder Creation](#quick-folder-needed-for-certain-apps)
+- [Activate/Install Snap on Linux Mint](#activate-and-install-snap-on-linux-mint)
+- [KX Repositories Installs](#kx-repositories-installs)
+- [LAMPP Install/Setup](#install-lampp-and-setup)
+- [Grub Customizer](#grub-customizer-install)
+
+
 #### Install generator planned!
 In the future, it is planned to make a simple apt-install generator in HTML/JS so you can easily customize your own, throw everything in and only tick everything you need.
 - - - - 
@@ -22,11 +34,11 @@ arc-theme doublecmd-gtk mixxx -y;
 sudo pip3 install --upgrade youtube_dl; 
 sudo apt remove celluloid rhythmbox -y;
 ```
-## Flatpak Install
+## Flatpak Installs
 ```
 flatpak install syncthing libresprite obsproject godot gimp skype spotify shotcut visualstudio.code steam
 ```
-## Snap Install
+## Snap Installs
 ```
 sudo snap install puddletag-snap mp3gain discord love2d kdenlive
 ```
