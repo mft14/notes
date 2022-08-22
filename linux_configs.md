@@ -3,15 +3,18 @@ Linux often needs more text adjustments than Windows. But that does not mean, it
 can be used later on, usually by copying/overwriting existing files. And even this step can be automated by simple bash scripts! That's why I made this cheatsheet.
 
 
-##Navigation
+## Navigation
 - **Settings**
-- []()
-- []()
+- **Config Locations**
 - **Configs**
-- [Simple SSH](#simple-ssh)
-- [Simple Shared Folder with Samba](#simple-shared-folder-with-samba)
-- []()
+  - [Simple SSH](#simple-ssh)
+  - [Simple Shared Folder with Samba](#simple-shared-folder-with-samba)
 
+# Settings
+
+# Config Locations
+
+# Configs
 ## Simple SSH
 #### ON SERVER
 |Command|Meaning|
@@ -26,7 +29,7 @@ Login with: `ssh USERNAME@IP`<br>
 - where **USERNAME** is the one you found out with `whoami`<br>
 - where **IP** is the IP Adress of the server (found out by using `hostname -l` OR `ip a`)
 
-#### Save SERVER adresses
+##### Save SERVER adresses
 If you have multiple servers, this is useful. Give them names of your choice.
 - Create file in home folder like this: `sudo nano .ssh/config`
 - Insert this:
@@ -95,4 +98,5 @@ Wait for samba to be restarted - then rebooting the system:
 ```
 reboot
 ```
-After a reboot, the folder can be reached now using **samba://NAME/SHARED_FOLDER** (here: Public) or it shows up automatically in your file explorer of choice. (under "Network" or "Other locations")
+After a reboot, the folder can be reached now using **samba://SERVERNAME/SHARED_FOLDER** (here: Public) or it shows up automatically in your file explorer of choice. (under "Network" or "Other locations")
+

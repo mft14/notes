@@ -3,6 +3,19 @@ Here are lists of common terminal apps I often use. <br>
 Ordered alphabetically<br>
 Still in work!
 
+###Navigation
+- [3rd Party CLI](#3rd-party-cli)
+  - [cmus](#cmus)
+  - [id3v2](#id3v2)
+  - [ffmpeg](#ffmpeg)
+  - [fluidsynth](#fluidsynth)
+  - [mp3gain](#mp3gain)
+  - [ventoy](#ventoy)
+- [Preinstalled CLI](#preinstalled-cli)
+  - [chmod](#chmod)
+  - [find](#find)
+  - [git](#git)
+
 ## 3rd Party CLI
 #### cmus
 |Command|Action|
@@ -31,6 +44,7 @@ Still in work!
 |video to GIF|ffmpeg -i video.mp4 -vf scale=300:-1 -t 10 -r 10 image.gif|
 |-r|Frame Rate|
 |-t|Time (Duration of file)|
+|**Quick example:** |`ffmpeg -i FILE.webm -f mp3 FILE.mp3`|
 
 #### fluidsynth
 Soundfont file first, then .mid file to playback
@@ -55,6 +69,7 @@ Check disk path names with "Disks"
 3. Let it run 
 
 
+
 ## Preinstalled CLI
 
 ####chmod 
@@ -72,14 +87,13 @@ Check disk path names with "Disks"
 |---|---|
 |`find . -name *.txt`|find all txt files|
 
-
 #### git
 |Command|Action|
 |---|---|
 |`git config --global user.name "NAME"`|Enter username|
 |`git config --global user.email "mail@example.com"`|Enter mail|
 |`git status | add . | commit -m "MESSAGE" | push | pull`|Standard Git commands to check, stage, commit, push & pull|
-|`git clone https://TOKEN@github.com/USER/REPO.git`|Quickly clone private repositories|
+|`git clone https://TOKEN@github.com/USER/REPO.git`|Quickly clone private repositories (create token first)|
 
 ## Good to know:
 - `cd` = use only `cd` to go to home directory
