@@ -15,6 +15,9 @@ inbox = outlook.Folders["kiel@it-stade.de"].Folders["Posteingang"] #ADD: spezifi
 # https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
 # DeletedItems=3, Outbox=4, SentMail=5, Inbox=6, Drafts=16, FolderJunk=23
 
+#write log
+file = open(str(output_dir)+"\\log.txt", "w")
+
 messages = inbox.Items# Get messages
 for message in messages:
     subject = message.Subject
@@ -30,8 +33,10 @@ for message in messages:
             attachment.SaveAsFile(target_folder / str(attachment))
             print("Attachment found: " + str(attachment))
             counter = counter + 1
+            file.write(str(attachment)+"\n")#write log
             # print("Couldn't find "+searched_file_ext+" extension")
+
+file.write("\nOperation done. Found " +str(counter)+ " "+searched_file_ext+" file(s)\n\n")
+file.close #close log file
 print("-------------------------")
 print("\nOperation done. Found " +str(counter)+ " "+searched_file_ext+" file(s)\n\n")
-
-
