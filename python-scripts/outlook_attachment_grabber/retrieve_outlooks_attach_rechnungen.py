@@ -2,6 +2,7 @@ from pathlib import Path  #core python module
 import win32com.client  #pip install pywin32
 
 searched_file_ext = ".pdf"
+counter = 0
 
 # Create output folder
 output_dir = Path.cwd() / "C:\\Users\\KarimKiel\\Downloads\\Rechnungen"
@@ -22,17 +23,15 @@ for message in messages:
     date = str(message.receivedTime) 
     date = str(date.replace(":","-"))
     
-    print(str(date))
-    input()
-
-    # Create separate folder for each message
-    target_folder = output_dir / str(date[0:date.find('.')]+" "+subject.replace(":",""))#date before name for better sorting, replacing uncommon chars to nothing
-    print("tg name: "+str(target_folder))
-    target_folder.mkdir(parents=True, exist_ok=True)
-
-    # Save attachments
     for attachment in attachments:
-        if(str(attachment).__contains__(searched_file_ext)):
+        if(str(attachment).__contains__(searched_file_ext)):#search for file ext
+            target_folder = output_dir / str(date[2:date.find('.')]+"__"+subject.replace(":",""))#date before name for better sorting, replacing uncommon chars to nothing
+            target_folder.mkdir(parents=True, exist_ok=True)#make folder, even with exist
             attachment.SaveAsFile(target_folder / str(attachment))
-        else:
-            print("Couldn't find "+searched_file_ext+" extension")
+            print("Attachment found: " + str(attachment))
+            counter = counter + 1
+            # print("Couldn't find "+searched_file_ext+" extension")
+print("-------------------------")
+print("\nOperation done. Found " +str(counter)+ " "+searched_file_ext+" file(s)\n\n")
+
+
