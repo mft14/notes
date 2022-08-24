@@ -6,20 +6,15 @@ searched_file_ext = ".pdf"
 # Create output folder
 output_dir = Path.cwd() / "C:\\Users\\KarimKiel\\Downloads\\Rechnungen"
 output_dir.mkdir(parents=True, exist_ok=True)
-
-# Connect to outlook
-outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")
+outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")# Connect to outlook
 
 # Connect to folder
 # inbox = outlook.GetDefaultFolder(6)
 inbox = outlook.Folders["kiel@it-stade.de"].Folders["Posteingang"] #ADD: spezifische Mail, bei Posteingang Sprache beachten, im Englischen Inbox
-
 # https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
 # DeletedItems=3, Outbox=4, SentMail=5, Inbox=6, Drafts=16, FolderJunk=23
 
-# Get messages
-messages = inbox.Items
-
+messages = inbox.Items# Get messages
 for message in messages:
     subject = message.Subject
     body = message.body
@@ -31,7 +26,7 @@ for message in messages:
     input()
 
     # Create separate folder for each message
-    target_folder = output_dir / str("TEST"+subject.replace(":",""))
+    target_folder = output_dir / str(date[0:date.find('.')]+" "+subject.replace(":",""))#date before name for better sorting, replacing uncommon chars to nothing
     print("tg name: "+str(target_folder))
     target_folder.mkdir(parents=True, exist_ok=True)
 
