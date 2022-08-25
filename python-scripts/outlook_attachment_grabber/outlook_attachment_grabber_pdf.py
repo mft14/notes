@@ -1,5 +1,8 @@
 from pathlib import Path  #core python module
+import datetime
 import win32com.client  #pip install pywin32
+
+#Outlook Attachment grabber Script by Karim Kiel - 25.08.2022
 
 searched_file_ext = ".pdf"
 counter = 0
@@ -10,13 +13,14 @@ output_dir.mkdir(parents=True, exist_ok=True)
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")# Connect to outlook
 
 # Connect to folder
-# inbox = outlook.GetDefaultFolder(6)
+#use this for getting all folders ---> inbox = outlook.GetDefaultFolder(6)
 inbox = outlook.Folders["kiel@it-stade.de"].Folders["Posteingang"] #ADD: spezifische Mail, bei Posteingang Sprache beachten, im Englischen Inbox
 # https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
 # DeletedItems=3, Outbox=4, SentMail=5, Inbox=6, Drafts=16, FolderJunk=23
 
-#write log
-file = open(str(output_dir)+"\\log.txt", "w")
+file = open(str(output_dir)+"\\log.txt", "w")#write log 
+now = str(datetime.datetime.now())[0:str(datetime.datetime.now()).find('.')]#gets today's date correctly formatted
+print("today is: " + now)
 
 messages = inbox.Items# Get messages
 for message in messages:
@@ -32,9 +36,9 @@ for message in messages:
             target_folder.mkdir(parents=True, exist_ok=True)#make folder, even with exist
             attachment.SaveAsFile(target_folder / str(attachment))
             print("Attachment found: " + str(attachment))
-            counter = counter + 1
+            counter = counter + 1#counting for how many 
             file.write(str(attachment)+"\n")#write log
-            # print("Couldn't find "+searched_file_ext+" extension")
+            print("Couldn't find "+searched_file_ext+" extension")
 
 file.write("\nOperation done. Found " +str(counter)+ " "+searched_file_ext+" file(s)\n\n")
 file.close #close log file
