@@ -1,6 +1,9 @@
-yn = input("Do you need target=blank? (Y/N) ")
-if(yn.lower() == "y" or yn == "yes"):
-    print("lower works")
-else: 
-    print("No")
+
+array = [0] * 15
+stringo = "hallihallohalloele"
+
+for i in range(0,len(array)):
+    array[i] = stringo[i:len(stringo)]
+    print(array[i])
+    
 
