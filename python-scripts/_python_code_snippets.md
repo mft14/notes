@@ -1,6 +1,4 @@
-#My Python Code Snippets
-
-
+# My Python Code Snippets
 
 ## Formatting
 ##### Current date correctly formatte
