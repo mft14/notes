@@ -4,8 +4,8 @@ from pathlib import Path  #core python module
 import datetime
 import win32com.client  #pip install pywin32
 
-searched_file_ext = [".png",".pdf",".txt","Moin"] #change or add here as many file ext as you need
-counter = [0] * len(searched_file_ext)#Counter for counting each file ext
+attach_filter = [".pdf"] #change or add here as many file ext as you need
+counter = [0] * len(attach_filter)#Counter for counting each file ext
 output_dir = Path.cwd() / "C:\\Users\\KarimKiel\\Downloads\\Rechnungen" #Output folder
 log = "Rechnungen_log"
 
@@ -33,8 +33,8 @@ for message in reversed(messages):
     date = str(date[2:date.find('.')])
     
     for attachment in reversed(attachments):
-        for i in range(0,len(searched_file_ext)):#look through the first ext, then download all, then next extension
-            if(str(attachment).__contains__(searched_file_ext[i])):#search for file ext
+        for i in range(0,len(attach_filter)):#look through the first ext, then download all, then next extension
+            if(str(attachment).__contains__(attach_filter[i])):#search for file ext
                 target_folder = output_dir / str(date+"_"+subject)#date before name for better sorting, replacing uncommon chars to nothing
                 target_folder.mkdir(parents=True, exist_ok=True)#make folder, even with exist
                 attachment.SaveAsFile(target_folder / str(attachment)) #Save attachment in targetfolder with attach name
@@ -60,11 +60,11 @@ for message in reversed(messages):
                 file.write("</tr>")
                 print("Attachment found: " + str(attachment)+" ---> in Mail: \"" + str(subject)+"\"")#print status
             else: 
-                print("No "+searched_file_ext[i]+" attachment in Mail: " + str(subject))#print status
+                print("No "+attach_filter[i]+" attachment in Mail: " + str(subject))#print status
 
 #write html footer
 file.write("</table><br><hr>")
-for i in range(0,len(searched_file_ext)):
-    file.write("Found " +str(counter[i])+ " <b>"+searched_file_ext[i]+"</b> file(s)<br>")
-file.write("<p>In total: <b><u>" +str(sum(counter))+ " file(s)</u></b><br>Last log operation: <b>"+now+"</b></p>")#total files
+for i in range(0,len(attach_filter)):
+    file.write("Found <u>" +str(counter[i])+ " attachments</u> with <b>"+attach_filter[i]+"</b> included<br>")
+file.write("<p>In total: <b><u>" +str(sum(counter))+ " attachments</u></b><br>Last log operation: <b>"+now+"</b></p>")#total files
 file.close #close log file
