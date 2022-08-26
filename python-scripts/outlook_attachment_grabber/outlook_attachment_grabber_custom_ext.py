@@ -15,8 +15,8 @@ errorlog = False
 output_dir.mkdir(parents=True, exist_ok=True)
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")# Connect to outlook
 
-inbox = outlook.Folders["karimkiel2@gmx.de"].Folders["Posteingang"] #ADD: Check inbox name (different language matter)
-# inbox = outlook.GetDefaultFolder(6)
+# inbox = outlook.Folders["karimkiel2@gmx.de"].Folders["Posteingang"] #ADD: Check inbox name (different language matter)
+inbox = outlook.GetDefaultFolder(6)
 # https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
 # DeletedItems=3, Outbox=4, SentMail=5, Inbox=6, Drafts=16, FolderJunk=23
 
@@ -54,7 +54,8 @@ for message in reversed(messages):
                 year_folder = "20"+date[0:2]
 
                 # target_folder = output_dir / str(date+"_"+subject)#use this if everything should be in thrown one folder
-                target_folder = output_dir /year_folder/month_folder/ str(date+"_"+subject)#date before name for better sorting, replacing uncommon chars to nothing
+                # target_folder = output_dir /year_folder/month_folder/ str("Tag "+date[6:len(date)-3]+"Uhr _"+subject)#date before name for better sorting, replacing uncommon chars to nothing
+                target_folder = output_dir /year_folder/month_folder/ str("Tag "+date[6:8]+" - "+str(date[len(date)-8:len(date)-3])+" Uhr --- "+subject)#date before name for better sorting, replacing uncommon chars to nothing
                 print(target_folder)
 
                 # Try creating folders but when bad letters, throw error message
@@ -72,15 +73,18 @@ for message in reversed(messages):
                         # file.write("<td>"+str(attachment)+"</td>") #
 
                     # Use this for file names with links.
+
                     file.write("<td><a href=\"") #start ahref
-                    file.write(str(output_dir/year_folder/month_folder)+"\\") #put path in href
-                    file.write(str(date+"_"+subject)+"\\") #put folder name in href
-                    file.write(str(attachment)+"\" target=\"_blank\">") #put attach name in href
+                    file.write(str(target_folder)+"\\" + str(attachment)+"\" target=\"_blank\">"  ) #put path in href
                     file.write(str(attachment)+"</a></td>") #use attach name as link text
 
                     file.write("<td>"+str(subject)+"</td>") #put email subject name in table
                     file.write("</tr>")
                     print("Attachment found: " + str(attachment)+" ---> in Mail: \"" + str(subject)+"\"")#print status
+
+                    #
+                    # file.write(str(output_dir/year_folder/month_folder)+"\\") #put path in href
+                    # file.write(str(date+"_"+subject)+"\\") #put folder name in href
 
                 except NotADirectoryError: #if subject has invalid signs, create error log
                     print("Couldn't create directory because of invalid signs for mail --> " + str(subject))
