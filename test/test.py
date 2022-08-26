@@ -1,14 +1,15 @@
 
-file1 = open("file1.txt","w")
-file1.write("Das ist File 1")
+arr = []
 
 
-file2 = open("file2.txt","w")
-file2.write("Das ist File 2")
-file2.close
 
 
-file1.close
+arr = arr.append("Test test test")
+
+
+
+for i in range(0,len(arr)):
+    print(arr)
 
 
 

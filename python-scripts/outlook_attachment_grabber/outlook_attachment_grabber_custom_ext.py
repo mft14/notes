@@ -4,17 +4,19 @@ from pathlib import Path  #core python module
 import datetime
 import win32com.client  #pip install pywin32
 
-attach_filter = [".pdf"] #change or add here as many file ext as you need
+attach_filter = [".pdf",".png"] #change or add here as many file ext as you need
 counter = [0] * len(attach_filter)#Counter for counting each file ext
 output_dir = Path.cwd() / "C:\\Users\\KarimKiel\\Downloads\\Rechnungen" #Output folder
+month_names = ["","-Jan","-Feb","-Mar","-Apr","-Mai","-Jun","-Jul","-Aug","-Sep","-Okt","-Nov","-Dez"]
 log = "Rechnungen_log" #log file NAME
+errorlog = False
 
 # Create output folder
 output_dir.mkdir(parents=True, exist_ok=True)
 outlook = win32com.client.Dispatch("Outlook.Application").GetNamespace("MAPI")# Connect to outlook
 
-# inbox = outlook.Folders["kiel@it-stade.de"].Folders["Posteingang"] #ADD: Check inbox name (different language matter)
-inbox = outlook.GetDefaultFolder(6)
+inbox = outlook.Folders["karimkiel2@gmx.de"].Folders["Posteingang"] #ADD: Check inbox name (different language matter)
+# inbox = outlook.GetDefaultFolder(6)
 # https://docs.microsoft.com/en-us/office/vba/api/outlook.oldefaultfolders
 # DeletedItems=3, Outbox=4, SentMail=5, Inbox=6, Drafts=16, FolderJunk=23
 
@@ -22,21 +24,38 @@ now = str(datetime.datetime.now())[0:str(datetime.datetime.now()).find('.')]#get
 file = open(str(output_dir)+"\\"+log+".html", "w")#starting a new logfile log 
 file.write("<style>body{font-family: Arial;}a{text-decoration: none;}a:hover{color:orange;}table{border-collapse:collapse;}td{border-bottom:1px solid black;padding:6 36 6 6;}thead{font-weight:bold;font-size:20;}</style>")
 file.write("<table><thead><td>Receiving Date</td><td>Attachments</td><td>Email Subject Name</td></thead>") #start html table for log file
-err_file = open(str(output_dir)+"\\""error.txt", "w")#starting err log
 
 messages = inbox.Items# Get messages
 for message in reversed(messages):
     attachments = message.Attachments #get attachment names
     subject = message.Subject #get subject names
-    # subject = subject.replace(":","") #get subject names
+
+    # filter out signs that are not working for dir names
+    subject = subject.replace(":","") 
+    subject = subject.replace("\"","--") 
+    subject = subject.replace("\\"," ") 
+    subject = subject.replace("/"," ") 
+    subject = subject.replace("%"," ") 
+    subject = subject.replace("$"," ") 
+
     date = str(message.receivedTime)# get email dates
     date = str(date.replace(":","-"))#change all : to - cuz folder names don't allow ":" 
-    date = str(date[2:date.find('.')])
+
+    date = str(date[2:19]) #it seems sometimes the dates have . or zeros so I use this
+    # date = str(date[2:date.find('.')])
+    # date = str(date[2:date.find('+')])
     
-    for attachment in reversed(attachments):
+    for attachment in reversed(attachments):#look through attach first, IF there isnt, then skip that mail 
         for i in range(0,len(attach_filter)):# look through the first ext, then download all, then next extension
             if(str(attachment).__contains__(attach_filter[i])):#search for file ext
-                target_folder = output_dir / str(date+"_"+subject)#date before name for better sorting, replacing uncommon chars to nothing
+
+                month_number = date[3:5].lstrip('0') #extract month names using 1 = Jan etc., removing 0 in front of date numbers to use it for the array month_names
+                month_folder = date[3:5]+month_names[int(month_number)] #both for folder renaming
+                year_folder = "20"+date[0:2]
+
+                # target_folder = output_dir / str(date+"_"+subject)#use this if everything should be in thrown one folder
+                target_folder = output_dir /year_folder/month_folder/ str(date+"_"+subject)#date before name for better sorting, replacing uncommon chars to nothing
+                print(target_folder)
 
                 # Try creating folders but when bad letters, throw error message
                 try:
@@ -54,7 +73,7 @@ for message in reversed(messages):
 
                     # Use this for file names with links.
                     file.write("<td><a href=\"") #start ahref
-                    file.write(str(output_dir)+"\\") #put path in href
+                    file.write(str(output_dir/year_folder/month_folder)+"\\") #put path in href
                     file.write(str(date+"_"+subject)+"\\") #put folder name in href
                     file.write(str(attachment)+"\" target=\"_blank\">") #put attach name in href
                     file.write(str(attachment)+"</a></td>") #use attach name as link text
@@ -63,9 +82,11 @@ for message in reversed(messages):
                     file.write("</tr>")
                     print("Attachment found: " + str(attachment)+" ---> in Mail: \"" + str(subject)+"\"")#print status
 
-                except NotADirectoryError: #if subject have invalid signs, create error log
+                except NotADirectoryError: #if subject has invalid signs, create error log
                     print("Couldn't create directory because of invalid signs for mail --> " + str(subject))
+                    err_file = open(str(output_dir)+"\\""error.txt", "w")#starting err log
                     err_file.write("Couldn't create directory because of invalid signs for mail --> " + str(subject)+"\n")
+                    errorlog = True
 
             else: 
                 print("No "+attach_filter[i]+" attachment in Mail: " + str(subject))#print status
@@ -77,4 +98,5 @@ for i in range(0,len(attach_filter)):
 
 file.write("<p>In total: <b><u>" +str(sum(counter))+ " attachments</u></b><br>Last log operation: <b>"+now+"</b></p>")#total files
 file.close #close log file
-err_file.close
+if(errorlog == True):#close errorlog only when there is one
+    err_file.close
