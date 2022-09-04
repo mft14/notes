@@ -35,7 +35,7 @@ flatpak install syncthing libresprite obsproject godot gimp skype spotify shotcu
 ```
 sudo snap install puddletag-snap mp3gain discord love2d kdenlive
 ```
-##i3wm Installs
+## i3wm Installs
 ```
 sudo apt install i3 lxappearance qt5ct nitrogen light feh conky rofi fonts-font-awesome compton xfce4-appfinder powerline fonts-powerline ; pip install --user bumblebee-status
 ```
