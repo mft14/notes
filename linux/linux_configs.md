@@ -1,20 +1,6 @@
 # Linux Configs and Settings
-Linux often needs more text adjustments than Windows. But that does not mean, it's unpractical. Most of these settings can be saved as small config file and 
-can be used later on, usually by copying/overwriting existing files. And even this step can be automated by simple bash scripts! That's why I made this cheatsheet.
 
 
-## Navigation
-- **Settings**
-- **Config Locations**
-- **Configs**
-  - [Simple SSH](#simple-ssh)
-  - [Simple Shared Folder with Samba](#simple-shared-folder-with-samba)
-
-# Settings
-
-# Config Locations
-
-# Configs
 ## Simple SSH
 #### ON SERVER
 |Command|Meaning|
@@ -101,5 +87,4 @@ Wait for samba to be restarted - then rebooting the system:
 ```
 reboot
 ```
-After a reboot, the folder can be reached now using **samba://SERVERNAME/SHARED_FOLDER** (here: Public) or it shows up automatically in your file explorer of choice. (under "Network" or "Other locations")
-
+After a reboot, the folder can be reached now using `smb://SERVERNAME/SHARED_FOLDER` (here: Public) or it shows up automatically in your file explorer of choice. (under "Network" or "Other locations")
