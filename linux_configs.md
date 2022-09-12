@@ -49,6 +49,9 @@ Host NAME_OF_YOUR_CHOICE
 > Note: This is a simple access without any further security policies. Just use this for non-sensitive files. Encryption might follow
 
 ## Simple Shared Folder with Samba
+### Note:
+I have created a python script setting up your Linux PC quickly as new file server. Check it out here on my gist page:
+[Linux Samba Setup in Python](https://gist.github.com/mft14/787bc9142b5c67cfcd9ba5a9bea4b271)
 ### ON SERVER
 Create two files and save them for future use.
 ##### Create smb.conf and fill it with this:
