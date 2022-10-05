@@ -17,7 +17,7 @@ map <C-h> <C-W>h
 map <C-l> <C-W>l
 
 " Buffer stuff
-map <leader>bd :Bclose<cr>:tabclose<cr>gT
+map <leader>bd :bd<cr>
 map <leader>ba :bufdo bd<cr>
 map gb :bnext<cr>
 map gB :bprevious<cr>
@@ -32,6 +32,8 @@ map <leader>t<leader> :tabnext
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Plugins
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ACHTUNG HIER DIE PFADE TAUSCHEN FÜR DIE JEWEILIGEN OS'se
+" call plug#begin('~/.config/nvim/autoload/plugged')
 call plug#begin('~/AppData/Local/nvim/autoload/plugged')
     Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
     Plug 'ryanoasis/vim-devicons'
@@ -40,12 +42,14 @@ call plug#begin('~/AppData/Local/nvim/autoload/plugged')
     Plug 'scrooloose/nerdtree'
     Plug 'mhinz/vim-startify'
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes' " tomorrow theme
 
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-surround'
     Plug 'easymotion/vim-easymotion'
+
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'rcarriga/nvim-dap-ui'
+    
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -116,7 +120,7 @@ set ffs=unix,dos,mac
 colorscheme tokyonight-moon 
 let g:airline_theme='tomorrow' " Statusbar Theme from Airline
 
-
+autocmd BufDelete * if empty(filter(tabpagebuflist(), '!buflisted(v:val)')) | Startify | endif
 
 " ###########################################
 " Quick Install in Windows Vim Plug Github (winget install Neovim.Neovim)
